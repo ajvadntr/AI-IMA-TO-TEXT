@@ -59,9 +59,18 @@ def genrateimages(message,prompt):
 	shutil.rmtree(str(message.id))
 
 @app.on_message(filters.command(["start"]))
-def start(client: pyrogram.client.Client, message: pyrogram.types.messages_and_media.message.Message):
-	app.send_message(message.chat.id,"Hi I am Dalle-Mini Bot, i can send request to https://www.craiyon.com/ with text prompt describing image and get you the results here\n\nUse /dalle command with the text prompt")
+async def start(client: pyrogram.client.Client, message: pyrogram.types.messages_and_media.message.Message):
+    button = [[
+               InlineKeyboardButton("Tᴇxᴛ Tᴏ Iᴍᴀɢᴇ", callback_data="toim")
+             ]]
+    await message.reply(
+        text=f"""Hᴇʟʟᴏ {message.from_user.mention}, Tʜɪs Is ᴀ Aɪ Tᴇxᴛ Tᴏ Iᴍᴀɢᴇ Bᴏᴛ.
 
+Yᴏᴜ Cᴀɴ Cʀᴇᴀᴛᴇ Iᴍᴀɢᴇ Fʀᴏᴍ Tᴇxᴛ Usɪɴɢ Dᴀʟʟᴇ-Mɪɴɪ.
+
+Cʟɪᴄᴋ Bᴇʟᴏᴡ Bᴜᴛᴛᴏɴ Tᴏ Gᴇᴛ Sᴛᴀʀᴛᴇᴅ""",
+        reply_markup=InlineKeyboardMarkup(button)
+    )
 # dalle command
 @app.on_message(filters.command(["dalle"]))
 def getpompt(client: pyrogram.client.Client, message: pyrogram.types.messages_and_media.message.Message):
