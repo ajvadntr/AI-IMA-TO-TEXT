@@ -7,7 +7,7 @@ import requests
 import pyrogram
 from pyrogram import Client
 from pyrogram import filters
-from pyrogram.types import InputMediaPhoto
+from pyrogram.types import InputMediaPhoto, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, CallbackQuery
 
 app = Client(
     "AI Bot",
