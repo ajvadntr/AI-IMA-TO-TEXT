@@ -71,19 +71,17 @@ Yᴏᴜ Cᴀɴ Cʀᴇᴀᴛᴇ Iᴍᴀɢᴇ Fʀᴏᴍ Tᴇxᴛ Usɪɴɢ Dᴀʟʟ
 Cʟɪᴄᴋ Bᴇʟᴏᴡ Bᴜᴛᴛᴏɴ Tᴏ Gᴇᴛ Sᴛᴀʀᴛᴇᴅ""",
         reply_markup=InlineKeyboardMarkup(button)
     )
+
+@app.on_callback_query()
+async def callback(bot, msg: CallbackQuery):
+    if msg.data == "toim":
+            await msg.message.edit"Sᴇɴᴅ Tᴇxᴛ Tᴏ Gᴇɴᴇʀᴀᴛᴇ Iᴍᴀɢᴇ")
+
 # dalle command
-@app.on_message(filters.command(["dalle"]))
+@app.on_message(filters.text)
 def getpompt(client: pyrogram.client.Client, message: pyrogram.types.messages_and_media.message.Message):
-
-	# getting prompt from the text
-	try:
-		prompt = message.text.split("/dalle ")[1]
-	except:
-		app.send_message(message.chat.id,'Send Prompt with Command,\nUssage : "/dalle high defination studio image of pokemon"')
-		return	
-
-	# threding	
-	app.send_message(message.chat.id,"Prompt received and Request is sent. Waiting time is 2-3 mins")
+        prompt = message.text
+	app.send_message(message.chat.id,"Pʀᴏᴄᴇssɪɴɢ...")
 	ai = threading.Thread(target=lambda:genrateimages(message,prompt),daemon=True)
 	ai.start()
         
