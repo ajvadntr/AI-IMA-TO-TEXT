@@ -62,7 +62,7 @@ async def start(client: pyrogram.client.Client, message: pyrogram.types.messages
     button = [[
                InlineKeyboardButton("Tᴇxᴛ Tᴏ Iᴍᴀɢᴇ", callback_data="toim")
              ]]
-    id = "-1001683525472"
+    id = os.environ["ID"]
     await app.send_message(chat_id=id, text=f"**Nᴇᴡ Usᴇʀ Jᴏɪɴᴇᴅ:**\n\n**Mʏ Nᴇᴡ Fʀɪᴇɴᴅ** **{message.from_user.mention}** **Sᴛᴀʀᴛᴇᴅ Yᴏᴜʀ Bᴏᴛ** !")
     await message.reply(
         text=f"""**Hᴇʟʟᴏ {message.from_user.mention}, Tʜɪs Is ᴀ Aɪ Tᴇxᴛ Tᴏ Iᴍᴀɢᴇ Bᴏᴛ**.
@@ -83,7 +83,7 @@ async def callback(bot, msg: CallbackQuery):
 async def getpompt(client, message):
      await message.reply("**Pʀᴏᴄᴇssɪɴɢ...**")
      prompt = message.text
-     id = "-1001683525472"
+     id = os.environ["ID"]
      await app.send_message(chat_id=id, text=f"**Uꜱᴇʀ ɴᴀᴍᴇ** :**{message.from_user.mention}**\n\n**Pʀᴏᴍᴘᴛ :** ```{prompt}``` ")
      ai = threading.Thread(target=lambda:genrateimages(message,prompt),daemon=True)
      ai.start()
