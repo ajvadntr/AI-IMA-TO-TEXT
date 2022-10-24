@@ -54,7 +54,7 @@ def genrateimages(message,prompt):
 
 	# archiving and uploding
 	shutil.make_archive(prompt,"zip",str(message.id))
-	app.send_document(message.chat.id,document=f"{prompt}.zip",caption=f'{prompt}\n\n(Archive for Uncompressed Images)')
+	app.send_document(message.chat.id,document=f"{prompt}.zip",caption=f'{prompt}\n\n**Uncompressed Images**')
 	os.remove(f"{prompt}.zip")
 	shutil.rmtree(str(message.id))
 
