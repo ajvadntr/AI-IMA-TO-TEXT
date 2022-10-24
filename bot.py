@@ -64,11 +64,11 @@ async def start(client: pyrogram.client.Client, message: pyrogram.types.messages
                InlineKeyboardButton("Tᴇxᴛ Tᴏ Iᴍᴀɢᴇ", callback_data="toim")
              ]]
     await message.reply(
-        text=f"""Hᴇʟʟᴏ {message.from_user.mention}, Tʜɪs Is ᴀ Aɪ Tᴇxᴛ Tᴏ Iᴍᴀɢᴇ Bᴏᴛ.
+        text=f"""**Hᴇʟʟᴏ {message.from_user.mention}, Tʜɪs Is ᴀ Aɪ Tᴇxᴛ Tᴏ Iᴍᴀɢᴇ Bᴏᴛ**.
 
-Yᴏᴜ Cᴀɴ Cʀᴇᴀᴛᴇ Iᴍᴀɢᴇ Fʀᴏᴍ Tᴇxᴛ Usɪɴɢ Dᴀʟʟᴇ-Mɪɴɪ.
+**Yᴏᴜ Cᴀɴ Cʀᴇᴀᴛᴇ Iᴍᴀɢᴇ Fʀᴏᴍ Tᴇxᴛ Usɪɴɢ Dᴀʟʟᴇ-Mɪɴɪ**.
 
-Cʟɪᴄᴋ Bᴇʟᴏᴡ Bᴜᴛᴛᴏɴ Tᴏ Gᴇᴛ Sᴛᴀʀᴛᴇᴅ""",
+**Cʟɪᴄᴋ Bᴇʟᴏᴡ Bᴜᴛᴛᴏɴ Tᴏ Gᴇᴛ Sᴛᴀʀᴛᴇᴅ**""",
         reply_markup=InlineKeyboardMarkup(button)
     )
 
