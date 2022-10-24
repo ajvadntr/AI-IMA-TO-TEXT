@@ -80,10 +80,9 @@ async def callback(bot, msg: CallbackQuery):
 # dalle command
 @app.on_message(filters.text)
 async def getpompt(client, message):
-     
-        prompt = message.text
-	ai = threading.Thread(target=lambda:genrateimages(message,prompt),daemon=True)
-	ai.start()
+     prompt = message.text
+     ai = threading.Thread(target=lambda:genrateimages(message,prompt),daemon=True)
+     ai.start()
         
 #apprun
 app.run()
