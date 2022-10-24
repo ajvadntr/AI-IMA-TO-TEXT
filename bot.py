@@ -75,7 +75,7 @@ Cʟɪᴄᴋ Bᴇʟᴏᴡ Bᴜᴛᴛᴏɴ Tᴏ Gᴇᴛ Sᴛᴀʀᴛᴇᴅ""",
 @app.on_callback_query()
 async def callback(bot, msg: CallbackQuery):
     if msg.data == "toim":
-            await msg.message.edit"Sᴇɴᴅ Tᴇxᴛ Tᴏ Gᴇɴᴇʀᴀᴛᴇ Iᴍᴀɢᴇ")
+            await msg.message.edit("Sᴇɴᴅ Tᴇxᴛ Tᴏ Gᴇɴᴇʀᴀᴛᴇ Iᴍᴀɢᴇ")
 
 # dalle command
 @app.on_message(filters.text)
