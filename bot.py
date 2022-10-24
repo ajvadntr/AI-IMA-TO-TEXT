@@ -79,7 +79,8 @@ async def callback(bot, msg: CallbackQuery):
 
 # dalle command
 @app.on_message(filters.text)
-def getpompt(client: pyrogram.client.Client, message: pyrogram.types.messages_and_media.message.Message):
+async def getpompt(client, message):
+     
         prompt = message.text
 	ai = threading.Thread(target=lambda:genrateimages(message,prompt),daemon=True)
 	ai.start()
