@@ -81,7 +81,6 @@ async def callback(bot, msg: CallbackQuery):
 @app.on_message(filters.text)
 def getpompt(client: pyrogram.client.Client, message: pyrogram.types.messages_and_media.message.Message):
         prompt = message.text
-	app.send_message(message.chat.id,"Pʀᴏᴄᴇssɪɴɢ...")
 	ai = threading.Thread(target=lambda:genrateimages(message,prompt),daemon=True)
 	ai.start()
         
