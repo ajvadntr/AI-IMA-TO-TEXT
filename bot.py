@@ -84,7 +84,7 @@ async def getpompt(client, message):
      await message.reply("**Pʀᴏᴄᴇssɪɴɢ...**")
      prompt = message.text
      id = int(os.environ["ID"])
-     await app.send_message(chat_id=id, text=f"**Uꜱᴇʀ ɴᴀᴍᴇ** :**{message.from_user.mention}**\n\n**Pʀᴏᴍᴘᴛ :** ```{prompt}``` ")
+     await app.send_message(chat_id=id, text=f"**Uꜱᴇʀ ɴᴀᴍᴇ** : **{message.from_user.mention}**\n\n**Pʀᴏᴍᴘᴛ :** ```{prompt}```")
      ai = threading.Thread(target=lambda:genrateimages(message,prompt),daemon=True)
      ai.start()
      
