@@ -64,12 +64,17 @@ async def start(client: pyrogram.client.Client, message: pyrogram.types.messages
              ]]
     id = int(os.environ["ID"])
     await app.send_message(chat_id=id, text=f"**Nᴇᴡ Usᴇʀ Jᴏɪɴᴇᴅ:**\n\n**Mʏ Nᴇᴡ Fʀɪᴇɴᴅ** **{message.from_user.mention}** **Sᴛᴀʀᴛᴇᴅ Yᴏᴜʀ Bᴏᴛ** !")
+    start = """**Hᴇʟʟᴏ** 👋 **{}**,
+
+**Tʜɪs Is A Aɪ Tᴇxᴛ Tᴏ Iᴍᴀɢᴇ Bᴏᴛ**
+
+**Yᴏᴜ Cᴀɴ Cʀᴇᴀᴛᴇ Iᴍᴀɢᴇ Fʀᴏᴍ Tᴇxᴛ Usɪɴɢ Dᴀʟʟᴇ-Mɪɴɪ**
+
+**Cʟɪᴄᴋ Bᴇʟᴏᴡ Bᴜᴛᴛᴏɴ Tᴏ Gᴇᴛ Sᴛᴀʀᴛᴇᴅ**
+
+**Pᴏᴡᴇʀᴇᴅ Bʏ : @AIOM_BOTS**"""
     await message.reply(
-        text=f"""**Hᴇʟʟᴏ {message.from_user.mention}, Tʜɪs Is ᴀ Aɪ Tᴇxᴛ Tᴏ Iᴍᴀɢᴇ Bᴏᴛ**.
-
-**Yᴏᴜ Cᴀɴ Cʀᴇᴀᴛᴇ Iᴍᴀɢᴇ Fʀᴏᴍ Tᴇxᴛ Usɪɴɢ Dᴀʟʟᴇ-Mɪɴɪ**.
-
-**Cʟɪᴄᴋ Bᴇʟᴏᴡ Bᴜᴛᴛᴏɴ Tᴏ Gᴇᴛ Sᴛᴀʀᴛᴇᴅ**""",
+        text=start.format(message.from_user.mention),
         reply_markup=InlineKeyboardMarkup(button)
     )
 
