@@ -61,6 +61,11 @@ def genrateimages(message,prompt):
 async def start(client: pyrogram.client.Client, message: pyrogram.types.messages_and_media.message.Message):
     button = [[
                InlineKeyboardButton("Tᴇxᴛ Tᴏ Iᴍᴀɢᴇ", callback_data="toim")
+             ],[
+               InlineKeyboardButton("Hᴇʟᴘ", callback_data="help"),
+               InlineKeyboardButton("Aʙᴏᴜᴛ", callback_data="about")
+             ],[
+               InlineKeyboardButton("Cʟᴏsᴇ", callback_data="close")
              ]]
     id = int(os.environ["ID"])
     await app.send_message(chat_id=id, text=f"**Nᴇᴡ Usᴇʀ Jᴏɪɴᴇᴅ:**\n\n**Mʏ Nᴇᴡ Fʀɪᴇɴᴅ** **{message.from_user.mention}** **Sᴛᴀʀᴛᴇᴅ Yᴏᴜʀ Bᴏᴛ** !")
@@ -73,7 +78,7 @@ async def start(client: pyrogram.client.Client, message: pyrogram.types.messages
 **Cʟɪᴄᴋ Bᴇʟᴏᴡ Bᴜᴛᴛᴏɴ Tᴏ Gᴇᴛ Sᴛᴀʀᴛᴇᴅ**
 
 **Pᴏᴡᴇʀᴇᴅ Bʏ : @AIOM_BOTS**"""
-    await message.reply(
+    await message.reply_text(
         text=start.format(message.from_user.mention),
         reply_markup=InlineKeyboardMarkup(button)
     )
@@ -82,6 +87,9 @@ async def start(client: pyrogram.client.Client, message: pyrogram.types.messages
 async def callback(bot, msg: CallbackQuery):
     if msg.data == "toim":
             await msg.message.edit("Sᴇɴᴅ Tᴇxᴛ Tᴏ Gᴇɴᴇʀᴀᴛᴇ Iᴍᴀɢᴇ")
+
+    if msg.data == "help":
+            await msg.message.edit(
 
 # dalle command
 @app.on_message(filters.text)
