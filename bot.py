@@ -60,8 +60,6 @@ def genrateimages(message,prompt):
 @app.on_message(filters.command(["start"]))
 async def start(client: pyrogram.client.Client, message: pyrogram.types.messages_and_media.message.Message):
     button = [[
-               InlineKeyboardButton("Tᴇxᴛ Tᴏ Iᴍᴀɢᴇ", callback_data="toim")
-             ],[
                InlineKeyboardButton("Hᴇʟᴘ", callback_data="help"),
                InlineKeyboardButton("Aʙᴏᴜᴛ", callback_data="about")
              ],[
