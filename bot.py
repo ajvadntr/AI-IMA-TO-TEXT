@@ -95,7 +95,7 @@ async def callback(bot, msg: CallbackQuery):
             await msg.message.edit("about")
 
     if msg.data == "close":
-            await.msg.message.delete()
+            await msg.message.delete()
 
 # dalle command
 @app.on_message(filters.text)
