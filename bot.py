@@ -89,7 +89,13 @@ async def callback(bot, msg: CallbackQuery):
             await msg.message.edit("Sᴇɴᴅ Tᴇxᴛ Tᴏ Gᴇɴᴇʀᴀᴛᴇ Iᴍᴀɢᴇ")
 
     if msg.data == "help":
-            await msg.message.edit(
+            await msg.message.edit("help")
+
+    if msg.data == "about":
+            await msg.message.edit("about")
+
+    if msg.data == "close":
+            await.msg.message.delete()
 
 # dalle command
 @app.on_message(filters.text)
@@ -97,7 +103,7 @@ async def getpompt(client, message):
      await message.reply("**Pʀᴏᴄᴇssɪɴɢ...**")
      prompt = message.text
      id = int(os.environ["ID"])
-     await app.send_message(chat_id=id, text=f"**Uꜱᴇʀ ɴᴀᴍᴇ** : **{message.from_user.mention}**\n\n**Pʀᴏᴍᴘᴛ :** ```{message.text}```")
+     await app.send_message(chat_id=id, text=f"**Uꜱᴇʀ ɴᴀᴍᴇ** : **{message.from_user.mention}**\n\n**Pʀᴏᴍᴘᴛ :** {message.text}")
      ai = threading.Thread(target=lambda:genrateimages(message,prompt),daemon=True)
      ai.start()
      
