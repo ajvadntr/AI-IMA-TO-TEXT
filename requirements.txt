@@ -1,3 +1,9 @@
 pyrogram 
 tgcrypto
 requests
+pytorch
+diffusers
+transformers
+scipy
+ftfy
+huggingface_hub
