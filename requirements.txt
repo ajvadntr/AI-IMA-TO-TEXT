@@ -1,7 +1,6 @@
 pyrogram 
 tgcrypto
 requests
-torch
 diffusers
 transformers
 scipy
