@@ -24,7 +24,8 @@ version = model.versions.get("8abccf52e7cba9f6e82317253f4a3549082e966db5584e92c8
 
 def stableimage(message,prompt):
 	output = version.predict(prompt=prompt)
-        await message.reply_photo(
+        app.send_photo(
+            chat_id=message.chat.id,
             photo=output,
             caption=prompt
         )
