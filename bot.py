@@ -29,11 +29,6 @@ headersList = {"authority": "backend.craiyon.com", "accept": "application/json",
 
 def stableimage(message,prompt):
 	output = version.predict(prompt=prompt)
-        app.send_photo(
-            chat_id=message.chat.id,
-            photo=output,
-            caption=prompt
-        )
 def genrateimages(message,prompt,hooo):
 
 	# getting the response
