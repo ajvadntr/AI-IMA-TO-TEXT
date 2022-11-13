@@ -45,7 +45,6 @@ def genrateimages(message,prompt,hooo):
 		i = i + 1 
 	
 	# sending images
-        await hooo.message.delete()
 	app.send_media_group(message.chat.id,
     [
         InputMediaPhoto(f"{message.id}/1.jpeg", caption=prompt),
