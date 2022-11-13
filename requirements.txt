@@ -6,3 +6,4 @@ transformers
 scipy
 ftfy
 huggingface_hub
+replicate
