@@ -27,7 +27,7 @@ headersList = {"authority": "backend.craiyon.com", "accept": "application/json",
 #pretext = "data:image/jpeg;base64,"
 
 # getting images and uploding
-def image_to_bytes(image):
+def image_to_bytes(output):
     bio = BytesIO()
     bio.name = 'image.jpeg'
     image.save(bio, 'JPEG')
