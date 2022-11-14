@@ -1,4 +1,5 @@
 import os
+import io
 import json
 import base64
 import threading
@@ -26,9 +27,19 @@ headersList = {"authority": "backend.craiyon.com", "accept": "application/json",
 #pretext = "data:image/jpeg;base64,"
 
 # getting images and uploding
+def image_to_bytes(image):
+    bio = BytesIO()
+    bio.name = 'image.jpeg'
+    image.save(bio, 'JPEG')
+    bio.seek(0)
+    return bio
 
-def stableimage(message,prompt):
-	output = version.predict(prompt=prompt)
+async def stableimage(message,prompt):
+    output = version.predict(prompt=prompt)
+    await message.app.send_photo(image_to_bytes(output))
+
+
+        
 def genrateimages(message,prompt,hooo):
 
 	# getting the response
