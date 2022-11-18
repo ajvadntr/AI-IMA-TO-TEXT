@@ -1,3 +1,6 @@
+from aiohttp import web
+from plugins import web_server
+
 import os
 import io
 import json
@@ -124,6 +127,13 @@ async def getpompt(client, message):
      si = threading.Thread(target=lambda:stableimage(message,prompt),daemon=True)
      si.start()
      ai.start()
+
+        PORT = "8080"
+        koyeb = web.AppRunner(await web_server())
+        await koyeb.setup()
+        bind_address = "0.0.0.0"
+        await web.TCPSite(koyeb, bind_address, PORT).start()
+
      
 #apprun
 app.run()
