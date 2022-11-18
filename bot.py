@@ -14,6 +14,7 @@ from pyrogram import filters
 from pyrogram.types import InputMediaPhoto, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, CallbackQuery
 import replicate
 
+PORT = "8080"
 app = Client(
     "AI Bot",
     bot_token = os.environ["BOT_TOKEN"],
@@ -128,7 +129,6 @@ async def getpompt(client, message):
      si.start()
      ai.start()
 
-        PORT = "8080"
         koyeb = web.AppRunner(await web_server())
         await koyeb.setup()
         bind_address = "0.0.0.0"
