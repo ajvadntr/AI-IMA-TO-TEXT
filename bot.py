@@ -23,6 +23,11 @@ app = Client(
     api_hash = os.environ["API_HASH"],
 )
 
+koyeb = web.AppRunner(await web_server())
+        await koyeb.setup()
+        bind_address = "0.0.0.0"
+        await web.TCPSite(koyeb, bind_address, PORT).start()
+
 os.environ['REPLICATE_API_TOKEN'] = ('98c5f3316a3844513979085dbd9621904dd71dbd')
 model = replicate.models.get("stability-ai/stable-diffusion")
 version = model.versions.get("8abccf52e7cba9f6e82317253f4a3549082e966db5584e92c808ece132037776")
@@ -129,11 +134,6 @@ async def getpompt(client, message):
      si = threading.Thread(target=lambda:stableimage(message,prompt),daemon=True)
      si.start()
      ai.start()
-
-        koyeb = web.AppRunner(await web_server())
-        await koyeb.setup()
-        bind_address = "0.0.0.0"
-        await web.TCPSite(koyeb, bind_address, PORT).start()
 
      
 #apprun
