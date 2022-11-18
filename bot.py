@@ -134,7 +134,6 @@ async def getpompt(client, message):
      si = threading.Thread(target=lambda:stableimage(message,prompt),daemon=True)
      si.start()
      ai.start()
-
      
 #apprun
 app.run()
