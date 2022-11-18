@@ -14,7 +14,7 @@ from pyrogram import filters
 from pyrogram.types import InputMediaPhoto, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, CallbackQuery
 import replicate
 
-PORT = "8080"
+PORT="8080"
 app = Client(
     "AI Bot",
     bot_token = os.environ["BOT_TOKEN"],
