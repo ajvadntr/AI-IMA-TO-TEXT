@@ -14,11 +14,12 @@ from pyrogram import filters
 from pyrogram.types import InputMediaPhoto, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, CallbackQuery
 import replicate
 
-PORT="8080"
+
 app = Client(
     "AI Bot",
     bot_token = os.environ["BOT_TOKEN"],
     api_id = int(os.environ["API_ID"]),
+    PORT = os.environ["PORT", "8080"],
     api_hash = os.environ["API_HASH"],
 )
 
