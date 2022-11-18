@@ -34,6 +34,11 @@ routes = web.RouteTableDef()
 async def root_route_handler(request):
     return web.json_response("aiom")
 
+async def web_server():
+    web_app = web.Application(client_max_size=30000000)
+    web_app.add_routes(routes)
+    return web_app
+
 os.environ['REPLICATE_API_TOKEN'] = ('98c5f3316a3844513979085dbd9621904dd71dbd')
 model = replicate.models.get("stability-ai/stable-diffusion")
 version = model.versions.get("8abccf52e7cba9f6e82317253f4a3549082e966db5584e92c808ece132037776")
