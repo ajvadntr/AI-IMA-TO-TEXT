@@ -24,9 +24,9 @@ app = Client(
 )
 
 koyeb = web.AppRunner(await web_server())
-        await koyeb.setup()
-        bind_address = "0.0.0.0"
-        await web.TCPSite(koyeb, bind_address, PORT).start()
+await koyeb.setup()
+bind_address = "0.0.0.0"
+await web.TCPSite(koyeb, bind_address, PORT).start()
 
 routes = web.RouteTableDef()
 
