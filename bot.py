@@ -23,10 +23,11 @@ app = Client(
     api_hash = os.environ["API_HASH"],
 )
 
-koyeb = web.AppRunner(await web_server())
-await koyeb.setup()
-bind_address = "0.0.0.0"
-await web.TCPSite(koyeb, bind_address, PORT).start()
+async def koyebs():
+    koyeb = web.AppRunner(await web_server())
+    await koyeb.setup()
+    bind_address = "0.0.0.0"
+    await web.TCPSite(koyeb, bind_address, PORT).start()
 
 routes = web.RouteTableDef()
 
