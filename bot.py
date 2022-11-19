@@ -1,5 +1,4 @@
 from aiohttp import web
-from plugins import web_server
 
 import os
 import io
@@ -23,17 +22,18 @@ app = Client(
     api_hash = os.environ["API_HASH"],
 )
 
+routes = web.RouteTableDef()
+
+@routes.get("/", allow_head=True)
+async def root_route_handler(request):
+    return web.json_response("aiom")
+
 async def koyebs():
     koyeb = web.AppRunner(await web_server())
     await koyeb.setup()
     bind_address = "0.0.0.0"
     await web.TCPSite(koyeb, bind_address, PORT).start()
 
-routes = web.RouteTableDef()
-
-@routes.get("/", allow_head=True)
-async def root_route_handler(request):
-    return web.json_response("aiom")
 
 async def web_server():
     web_app = web.Application(client_max_size=30000000)
