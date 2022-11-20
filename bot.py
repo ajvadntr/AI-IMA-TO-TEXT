@@ -27,17 +27,16 @@ routes = web.RouteTableDef()
 async def root_route_handler(request):
     return web.json_response("aiom")
 
+async def web_server():
+    web_app = web.Application(client_max_size=30000000)
+    web_app.add_routes(routes)
+    return web_app
+
 async def koyebs():
     koyeb = web.AppRunner(await web_server())
     await koyeb.setup()
     bind_address = "0.0.0.0"
     await web.TCPSite(koyeb, bind_address, PORT).start()
-
-
-async def web_server():
-    web_app = web.Application(client_max_size=30000000)
-    web_app.add_routes(routes)
-    return web_app
 
 os.environ['REPLICATE_API_TOKEN'] = ('98c5f3316a3844513979085dbd9621904dd71dbd')
 model = replicate.models.get("stability-ai/stable-diffusion")
