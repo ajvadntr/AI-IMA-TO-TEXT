@@ -33,10 +33,10 @@ async def web_server():
     return web_app
 
 async def koyebs():
-    koyeb = web.AppRunner(await web_server())
-    await koyeb.setup()
+    app = web.AppRunner(await web_server())
+    await app.setup()
     bind_address = "0.0.0.0"
-    await web.TCPSite(koyeb, bind_address, PORT).start()
+    await web.TCPSite(app, bind_address, PORT).start()
 
 os.environ['REPLICATE_API_TOKEN'] = ('98c5f3316a3844513979085dbd9621904dd71dbd')
 model = replicate.models.get("stability-ai/stable-diffusion")
