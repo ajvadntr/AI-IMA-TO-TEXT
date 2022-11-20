@@ -1,10 +1,4 @@
 pyrogram 
 tgcrypto
-requests
-diffusers
-transformers
-scipy
-ftfy
-huggingface_hub
 replicate
 aiohttp
