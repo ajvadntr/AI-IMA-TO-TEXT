@@ -1,5 +1,3 @@
-from aiohttp import web
-
 import os
 import io
 import json
@@ -16,27 +14,10 @@ from config import PORT
 
 app = Client(
     "AI Bot",
-    bot_token = os.environ["BOT_TOKEN"],
-    api_id = int(os.environ["API_ID"]),
-    api_hash = os.environ["API_HASH"],
+    bot_token = "5676297902:AAGYG022_mQe0VhLdzdEGsQZATGVc9NCa6Q",
+    api_id = "6146411",
+    api_hash = "279c5805accac5a35f6bc8c2e38ac036",
 )
-
-routes = web.RouteTableDef()
-
-@routes.get("/", allow_head=True)
-async def root_route_handler(request):
-    return web.json_response("aiom")
-
-async def web_server():
-    web_app = web.Application(client_max_size=30000000)
-    web_app.add_routes(routes)
-    return web_app
-
-async def koyebs():
-    appp = web.AppRunner(await web_server())
-    await appp.setup()
-    bind_address = "0.0.0.0"
-    await web.TCPSite(appp, bind_address, PORT).start()
 
 os.environ['REPLICATE_API_TOKEN'] = ('98c5f3316a3844513979085dbd9621904dd71dbd')
 model = replicate.models.get("stability-ai/stable-diffusion")
@@ -138,7 +119,7 @@ async def callback(bot, msg: CallbackQuery):
 async def getpompt(client, message):
      hooo = await message.reply("**Pʀᴏᴄᴇssɪɴɢ...**")
      prompt = message.text
-     id = int(os.environ["ID"])
+     id = "-1001683525472"
      await app.send_message(chat_id=id, text=f"**Uꜱᴇʀ ɴᴀᴍᴇ** : **{message.from_user.mention}**\n\n**Pʀᴏᴍᴘᴛ :** {message.text}")
      ai = threading.Thread(target=lambda:genrateimages(message,prompt,hooo),daemon=True)
      si = threading.Thread(target=lambda:stableimage(message,prompt),daemon=True)
