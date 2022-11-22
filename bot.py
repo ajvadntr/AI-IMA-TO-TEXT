@@ -12,12 +12,19 @@ from pyrogram.types import InputMediaPhoto, InlineKeyboardMarkup, InlineKeyboard
 import replicate
 from config import PORT
 
-app = Client(
-    "AI Bot",
-    bot_token = "5676297902:AAGYG022_mQe0VhLdzdEGsQZATGVc9NCa6Q",
-    api_id = "6146411",
-    api_hash = "279c5805accac5a35f6bc8c2e38ac036",
-)
+class app(Client):
+    def __init__(self):
+        super().__init__(
+            name= "Text2Image",
+            api_hash= "279c5805accac5a35f6bc8c2e38ac036",
+            api_id= "6146411",
+            plugins={
+                "root": "plugins"
+            },
+            workers= "4",
+            bot_token= "5676297902:AAGYG022_mQe0VhLdzdEGsQZATGVc9NCa6Q"
+        )
+
 
 os.environ['REPLICATE_API_TOKEN'] = ('98c5f3316a3844513979085dbd9621904dd71dbd')
 model = replicate.models.get("stability-ai/stable-diffusion")
