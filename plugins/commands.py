@@ -5,7 +5,7 @@ from bot import Bot as app
 import threading
 import pyrogram
 from pyrogram import filters
-from plugins import genrateimages
+from plugins.dall-mini import genrateimages
 
 ## --- ## ## --- ##
 ## --- ## ## --- ##
