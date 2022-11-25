@@ -8,7 +8,7 @@ from datetime import datetime
 import pyromod.listen
 from pyrogram import Client
 from pyrogram import filters
-from config import PORT, TG_BOT_WORKERS
+from config import PORT, TG_BOT_WORKERS, LOGGER
 from pyrogram.enums import ParseMode
 
 class Bot(Client):
