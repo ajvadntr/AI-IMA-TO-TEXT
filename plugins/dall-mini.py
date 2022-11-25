@@ -10,7 +10,7 @@ from pyrogram.types import InputMediaPhoto
 
 
 
-def genrateimages(message,prompt):
+async def genrateimages(message,prompt):
 
 	# getting the response
 	payload = json.dumps({"prompt": prompt})
