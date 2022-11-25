@@ -1,7 +1,7 @@
 #©aiom|bots
 
 
-from bot import app
+from bot import Bot as app
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 
 @app.on_callback_query()
