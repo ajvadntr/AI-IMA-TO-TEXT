@@ -8,10 +8,10 @@ from datetime import datetime
 import pyromod.listen
 from pyrogram import Client
 from pyrogram import filters
-from config import PORT
+from config import PORT, TG_BOT_WORKERS
 from pyrogram.enums import ParseMode
 
-class app(Client):
+class Bot(Client):
     def __init__(self):
         super().__init__(
             name= "Text2Image",
@@ -20,7 +20,7 @@ class app(Client):
             plugins={
                 "root": "plugins"
             },
-            workers= "4",
+            workers=TG_BOT_WORKERS,
             bot_token= "5676297902:AAGYG022_mQe0VhLdzdEGsQZATGVc9NCa6Q"
         )
         self.LOGGER = LOGGER
