@@ -1,7 +1,7 @@
 ## --- ## ## --- ##
 ## --- ## ## --- ##
 
-from bot import app
+from bot import Bot as app
 import threading
 import pyrogram
 from pyrogram import filters
