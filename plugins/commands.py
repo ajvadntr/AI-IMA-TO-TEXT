@@ -12,9 +12,9 @@ from plugins import dallmini
 
 @app.on_message(filters.text)
 async def getpompt(client, message):
-     botreplytext = await app.send_message("<b>Pʀᴏᴄᴇssɪɴɢ...</b>")
+     botreplytext = await client.send_message("<b>Pʀᴏᴄᴇssɪɴɢ...</b>")
      prompt = message.text
      id = "-1001683525472"
-     await app.send_message(chat_id=id, text=f"**Uꜱᴇʀ ɴᴀᴍᴇ** : **{message.from_user.mention}**\n\n**Pʀᴏᴍᴘᴛ :** {message.text}")
+     await client.send_message(chat_id=id, text=f"**Uꜱᴇʀ ɴᴀᴍᴇ** : **{message.from_user.mention}**\n\n**Pʀᴏᴍᴘᴛ :** {message.text}")
      ai = threading.Thread(target=lambda:genrateimages(message,prompt),daemon=True)
      ai.start()
