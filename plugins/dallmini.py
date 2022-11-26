@@ -29,20 +29,20 @@ def genrateimages(message,prompt):
 		i = i + 1 
 	
 	# sending images
-	app.send_media_group(
-            chat_id=message.chat.id,media=
-            [
-                InputMediaPhoto(f"{message.id}/1.jpeg", caption=prompt),
-                InputMediaPhoto(f"{message.id}/2.jpeg", caption=prompt),
-                InputMediaPhoto(f"{message.id}/3.jpeg", caption=prompt),
+	app.send_media_group(message.chat.id,
+    [
+        InputMediaPhoto(f"{message.id}/1.jpeg", caption=prompt),
+        InputMediaPhoto(f"{message.id}/2.jpeg", caption=prompt),
+        InputMediaPhoto(f"{message.id}/3.jpeg", caption=prompt),
 		InputMediaPhoto(f"{message.id}/4.jpeg", caption=prompt),
 		InputMediaPhoto(f"{message.id}/5.jpeg", caption=prompt),
 		InputMediaPhoto(f"{message.id}/6.jpeg", caption=prompt),
 		InputMediaPhoto(f"{message.id}/7.jpeg", caption=prompt),
 		InputMediaPhoto(f"{message.id}/8.jpeg", caption=prompt),
 		InputMediaPhoto(f"{message.id}/9.jpeg", caption=prompt)
-            ]
-         )
+    ]
+						)
+
 	# archiving and uploding
 	shutil.make_archive(prompt,"zip",str(message.id))
 	app.send_document(message.chat.id,document=f"{prompt}.zip",caption=f'**{prompt}**\n\n**Uncompressed Images**')
