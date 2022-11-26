@@ -35,17 +35,17 @@ async def callback(bot, msg: CallbackQuery):
             try:
                 try:
                     ag = await msg.reply_text("Now send me a text")
-                   _text = await bot.listen(m.chat.id, filters=filters.text, timeout=90)
-                   if _text.text:
-                       textp = _text.text
-                       if textp == "/cancel":
-                          await ag.edit("Process Cancelled Successfully")
-                          return
-                   else:
-                       return
-               except TimeoutError:
-                   await ag.edit("I can't wait more for password, try again")
-                   return
+                    _text = await bot.listen(m.chat.id, filters=filters.text, timeout=90)
+                    if _text.text:
+                        textp = _text.text
+                        if textp == "/cancel":
+                           await ag.edit("Process Cancelled Successfully")
+                           return
+                    else:
+                        return
+                except TimeoutError:
+                    await ag.edit("I can't wait more for password, try again")
+                    return
 
                 botreplytext = await bot.send_message(chat_id=msg.chat.id, text="<b>Pʀᴏᴄᴇssɪɴɢ...</b>")
                 prompt = textp
