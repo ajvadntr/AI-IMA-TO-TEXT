@@ -74,5 +74,6 @@ async def callback(bot, msg: CallbackQuery):
 		           InputMediaPhoto(f"{message.id}/8.jpeg", caption=prompt),
 		           InputMediaPhoto(f"{message.id}/9.jpeg", caption=prompt)
                     ]
-               )
-                shutil.rmtree(str(msg.id))
+                )
+                except
+                    shutil.rmtree(str(msg.id))
