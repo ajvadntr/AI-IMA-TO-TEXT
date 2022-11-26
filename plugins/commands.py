@@ -7,7 +7,7 @@ import threading
 import shutil
 import requests
 import pyrogram
-from pyrogram.types import InputMediaPhoto
+from pyrogram.types import InputMediaPhoto, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
 from bot import Bot as app
 import threading
 from pyrogram import filters
@@ -53,4 +53,24 @@ async def getpompt(client, message):
          ]
     )
      shutil.rmtree(str(message.id))
+
+@app.on_message(filters.command(["start"]))
+async def start(client: pyrogram.client.Client, message: pyrogram.types.messages_and_media.message.Message):
+    button = [[
+               InlineKeyboardButton("Hᴇʟᴘ", callback_data="help"),
+               InlineKeyboardButton("Aʙᴏᴜᴛ", callback_data="about")
+             ],[
+               InlineKeyboardButton("Cʟᴏsᴇ", callback_data="close")
+             ]]
+    id = DBID
+    await app.send_message(chat_id=id, text=f"**Nᴇᴡ Usᴇʀ Jᴏɪɴᴇᴅ:**\n\n**Mʏ Nᴇᴡ Fʀɪᴇɴᴅ** **{message.from_user.mention}** **Sᴛᴀʀᴛᴇᴅ Yᴏᴜʀ Bᴏᴛ** !")
+    start = """**Hᴇʟʟᴏ** 👋 **{}**,
+**Tʜɪs Is A Aɪ Tᴇxᴛ Tᴏ Iᴍᴀɢᴇ Bᴏᴛ**
+**Yᴏᴜ Cᴀɴ Cʀᴇᴀᴛᴇ Iᴍᴀɢᴇ Fʀᴏᴍ Tᴇxᴛ Usɪɴɢ Dᴀʟʟᴇ-Mɪɴɪ**
+**Cʟɪᴄᴋ Bᴇʟᴏᴡ Bᴜᴛᴛᴏɴ Tᴏ Gᴇᴛ Sᴛᴀʀᴛᴇᴅ**
+**Pᴏᴡᴇʀᴇᴅ Bʏ : @AIOM_BOTS**"""
+    await message.reply_text(
+        text=start.format(message.from_user.mention),
+        reply_markup=InlineKeyboardMarkup(button)
+    )
 
