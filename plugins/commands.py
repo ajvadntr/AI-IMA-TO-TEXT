@@ -52,10 +52,5 @@ async def getpompt(client, message):
 		InputMediaPhoto(f"{message.id}/9.jpeg", caption=prompt)
          ]
     )
-
-	# archiving and uploding
-     shutil.make_archive(prompt,"zip",str(message.id))
-     await client.send_document(chat_id=message.chat.id,document=f"{prompt}.zip",caption=f'**{prompt}**\n\n**Uncompressed Images**')
-     os.remove(f"{prompt}.zip")
      shutil.rmtree(str(message.id))
 
