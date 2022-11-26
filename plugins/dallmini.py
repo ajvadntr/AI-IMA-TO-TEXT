@@ -30,7 +30,7 @@ def genrateimages(message,prompt):
 	
 	# sending images
 	app.send_media_group(
-            message.chat.id,media=
+            chat_id=message.chat.id,media=
             [
                 InputMediaPhoto(f"{message.id}/1.jpeg", caption=prompt),
                 InputMediaPhoto(f"{message.id}/2.jpeg", caption=prompt),
