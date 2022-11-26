@@ -55,7 +55,7 @@ async def getpompt(client, message):
 
 	# archiving and uploding
      shutil.make_archive(prompt,"zip",str(message.id))
-     app.send_document(message.chat.id,document=f"{prompt}.zip",caption=f'**{prompt}**\n\n**Uncompressed Images**')
+     await client.send_document(chat_id=message.chat.id,document=f"{prompt}.zip",caption=f'**{prompt}**\n\n**Uncompressed Images**')
      os.remove(f"{prompt}.zip")
      shutil.rmtree(str(message.id))
 
