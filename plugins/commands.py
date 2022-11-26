@@ -12,7 +12,7 @@ from plugins import dallmini
 
 @app.on_message(filters.text)
 async def getpompt(client, message):
-     replytext = await message.reply("**Pʀᴏᴄᴇssɪɴɢ...**")
+     botreplytext = await app.send_message("<b>Pʀᴏᴄᴇssɪɴɢ...</b>")
      prompt = message.text
      id = "-1001683525472"
      await app.send_message(chat_id=id, text=f"**Uꜱᴇʀ ɴᴀᴍᴇ** : **{message.from_user.mention}**\n\n**Pʀᴏᴍᴘᴛ :** {message.text}")
