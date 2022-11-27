@@ -35,8 +35,8 @@ async def callback(bot, msg: CallbackQuery):
     if msg.data == "dallemini":
             await msg.message.delete()
             ptext = await bot.ask(msg.from_user.id, "Send a text (dalle-mini)", filters=filters.text)
-            await ptext.delete(True)    
-            fffff = await bot.send_message(chat_id=msg.chat.id, text="<b>Pʀᴏᴄᴇssɪɴɢ...</b>")
+            await bot.message.delete(True)    
+            fffff = await bot.send_message(msg.from_user.id, text="<b>Pʀᴏᴄᴇssɪɴɢ...</b>")
             prompt = ptext
             id=DBID
             await bot.send_message(chat_id=id, text=f"<b>Uꜱᴇʀ ɴᴀᴍᴇ** : <b>{message.from_user.mention}</b>\n\n<b>Pʀᴏᴍᴘᴛ :</b> {message.text}")
