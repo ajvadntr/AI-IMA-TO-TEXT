@@ -34,8 +34,8 @@ async def callback(bot, msg: CallbackQuery):
     if msg.data == "dallemini":
             try:
                 try:
-                    ag = await msg.reply_text("Now send me a text")
-                    _text = await bot.listen(m.chat.id, filters=filters.text, timeout=90)
+                    ag = await bot.send_message(chat_id=msg.chat.id, text="Now send me a text")
+                    _text = await bot.listen(msg.chat.id, filters=filters.text, timeout=90)
                     if _text.text:
                         textp = _text.text
                         if textp == "/cancel":
