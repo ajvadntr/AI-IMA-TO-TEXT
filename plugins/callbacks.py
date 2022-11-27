@@ -34,12 +34,13 @@ async def callback(bot, msg: CallbackQuery):
 
     if msg.data == "dallemini":
             await msg.message.delete()
-            ptext = await bot.ask(msg.from_user.id, "Send a text (dalle-mini)", filters=filters.text)
-            await bot.message.delete(True)    
+            sssss = await bot.send_message(msg.from_user.id, text="send a text (dalle-mini)")
+            ptext = await bot.listen(msg.from_user.id, filters=filters.text, timeout=90)
+            await sssss.delete(True)    
             fffff = await bot.send_message(msg.from_user.id, text="<b>Pʀᴏᴄᴇssɪɴɢ...</b>")
             prompt = ptext
             id=DBID
-            await bot.send_message(chat_id=id, text=f"<b>Uꜱᴇʀ ɴᴀᴍᴇ** : <b>{message.from_user.mention}</b>\n\n<b>Pʀᴏᴍᴘᴛ :</b> {message.text}")
+            await bot.send_message(chat_id=id, text=f"<b>Uꜱᴇʀ ɴᴀᴍᴇ** : <b>{message.from_user.mention}</b>\n\n<b>Pʀᴏᴍᴘᴛ :</b> {ptext}")
             payload = json.dumps({"prompt": prompt})
             response = requests.request("POST", reqUrl, data=payload, headers=headersList).json()
             os.mkdir(str(msg.id))
