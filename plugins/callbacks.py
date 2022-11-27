@@ -20,7 +20,7 @@ headersList = {"authority": "backend.craiyon.com", "accept": "application/json",
 
 class JsonSerializable(object):
     def toJson(self):
-        return json.dumps(self.__dict__)
+        return json.dumps(self.__str__)
 
     def __repr__(self):
         return self.toJson()
