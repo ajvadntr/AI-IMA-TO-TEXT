@@ -18,13 +18,6 @@ reqUrl = "https://backend.craiyon.com/generate"
 headersList = {"authority": "backend.craiyon.com", "accept": "application/json", "accept-language": "en-US,en;q=0.9", "cache-control": "no-cache", "content-type": "application/json", "dnt": "1", "origin": "https://www.craiyon.com", "pragma": "no-cache", "sec-ch-ua-mobile": "?0", "sec-ch-ua-platform": "Linux", "sec-fetch-dest": "empty", "sec-fetch-mode": "cors", "sec-fetch-site": "same-site", "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
 
 
-class JsonSerializable(string):
-    def toJson(self):
-        return json.dumps(self.__str__)
-
-    def __repr__(self):
-        return self.toJson()
-
 @app.on_callback_query()
 async def callback(bot, msg: CallbackQuery):
     if msg.data == "toim":
@@ -49,7 +42,9 @@ async def callback(bot, msg: CallbackQuery):
             id=DBID
             await bot.send_message(chat_id=id, text=f"<b>Uꜱᴇʀ ɴᴀᴍᴇ** : <b>{msg.from_user.mention}</b>\n\n<b>Pʀᴏᴍᴘᴛ :</b> {ptext}")
             data = {"prompt": prompt}
-            payload = data.toJson()
+            out_file = open("myfile.json", "w")
+            payload = json.dump(data, out_file, indent = 6)
+            out_file.close()
             response = requests.request("POST", reqUrl, data=payload, headers=headersList).json()
             os.mkdir(str(msg.id))
             i = 1
