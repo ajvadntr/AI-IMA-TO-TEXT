@@ -32,10 +32,12 @@ async def callback(bot, msg: CallbackQuery):
 
     if msg.data == "create":
             button = [[
-               InlineKeyboardButton("• Dᴀʟʟ E Mɪɴɪ", callback_data="dallemini"),
-               InlineKeyboardButton("• Sᴛᴀʙʟᴇ Dɪꜰꜰᴜsɪᴏɴ", callback_data="dallemini"),
+               InlineKeyboardButton("• Dᴀʟʟ E Mɪɴɪ", callback_data="dallemini")
+               ],[
+               InlineKeyboardButton("• Sᴛᴀʙʟᴇ Dɪꜰꜰᴜsɪᴏɴ", callback_data="dallemini")
+               ],[
                InlineKeyboardButton("✘ Cʟᴏsᴇ", callback_data="close")
-             ]]
+               ]]
             await msg.message.edit(
                 text="≡ Cʜᴏᴏsᴇ Aɪ Mᴏᴅᴇʟ",
                 reply_markup=InlineKeyboardMarkup(button)
