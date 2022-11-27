@@ -29,6 +29,7 @@ def genrateimages(bot, msg, prompt):
 		i = i + 1 
 	
 	# sending images
+        fffff.delete(True)
 	bot.send_media_group(msg.from_user.id,
     [
         InputMediaPhoto(f"{msg.id}/1.jpeg", caption=prompt),
