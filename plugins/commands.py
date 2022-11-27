@@ -15,7 +15,7 @@ async def start(client: pyrogram.client.Client, message: pyrogram.types.messages
                InlineKeyboardButton("Hᴇʟᴘ", callback_data="help"),
                InlineKeyboardButton("Aʙᴏᴜᴛ", callback_data="dallemini")
              ],[
-               InlineKeyboardButton("Cʟᴏsᴇ", callback_data="close")
+               InlineKeyboardButton("+ Cʀᴇᴀᴛᴇ", callback_data="create")
              ]]
     id = DBID
     await client.send_message(chat_id=id, text=f"**Nᴇᴡ Usᴇʀ Jᴏɪɴᴇᴅ:**\n\n**Mʏ Nᴇᴡ Fʀɪᴇɴᴅ** **{message.from_user.mention}** **Sᴛᴀʀᴛᴇᴅ Yᴏᴜʀ Bᴏᴛ** !")
