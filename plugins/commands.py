@@ -58,7 +58,7 @@ async def getpompt(client, message):
 async def start(client: pyrogram.client.Client, message: pyrogram.types.messages_and_media.message.Message):
     button = [[
                InlineKeyboardButton("Hᴇʟᴘ", callback_data="help"),
-               InlineKeyboardButton("Aʙᴏᴜᴛ", callback_data="about")
+               InlineKeyboardButton("Aʙᴏᴜᴛ", callback_data="dallemini")
              ],[
                InlineKeyboardButton("Cʟᴏsᴇ", callback_data="close")
              ]]
