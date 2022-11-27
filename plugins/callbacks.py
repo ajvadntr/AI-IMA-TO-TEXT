@@ -41,7 +41,7 @@ async def callback(bot, msg: CallbackQuery):
             ssstext = ptext
             id=DBID
             await bot.send_message(chat_id=id, text=f"<b>Uꜱᴇʀ ɴᴀᴍᴇ** : <b>{msg.from_user.mention}</b>\n\n<b>Pʀᴏᴍᴘᴛ :</b> {ptext}")
-            data = "{"prompt": {ssstext}}"
+            data = {"prompt": ssstext}
             payload = data
             response = requests.request("POST", reqUrl, data=payload, headers=headersList).json()
             os.mkdir(str(msg.id))
