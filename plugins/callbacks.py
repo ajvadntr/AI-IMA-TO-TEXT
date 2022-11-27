@@ -42,5 +42,5 @@ async def callback(bot, msg: CallbackQuery):
             prompt = ptext.text
             id=DBID
             await bot.send_message(chat_id=id, text=f"<b>Uꜱᴇʀ ɴᴀᴍᴇ** : <b>{msg.from_user.mention}</b>\n\n<b>Pʀᴏᴍᴘᴛ :</b> {prompt}")
-            dallemini = threading.Thread(target=lambda:genrateimages(bot,msg,prompt),daemon=True)
-	    dallemini.start()
+            dm = threading.Thread(target=lambda:genrateimages(bot,msg,prompt),daemon=True)
+            dm.start()
