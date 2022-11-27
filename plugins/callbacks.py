@@ -57,4 +57,5 @@ async def callback(bot, msg: CallbackQuery):
             await bot.send_message(chat_id=id, text=f"<b>Uꜱᴇʀ ɴᴀᴍᴇ** : <b>{msg.from_user.mention}</b>\n\n<b>Pʀᴏᴍᴘᴛ :</b> {prompt}")
             dm = threading.Thread(target=lambda:genrateimages(bot,msg,prompt),daemon=True)
             dm.start()
+            await asyncio.sleep(90)
             await fffff.delete(True)
