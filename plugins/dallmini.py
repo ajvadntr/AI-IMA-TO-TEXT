@@ -18,13 +18,13 @@ def genrateimages(bot, msg, prompt):
 	# getting the response
 	payload = json.dumps({"prompt": prompt})
 	response = requests.request("POST", reqUrl, data=payload, headers=headersList).json()
-	os.mkdir(str(message.id))
+	os.mkdir(str(msg.id))
 
 	# decoding base64 to image
 	i = 1
 	for ele in response["images"]:
 		image = base64.b64decode(ele.replace('\\n',''))
-		with open(f"{message.id}/{i}.jpeg","wb") as file:
+		with open(f"{msg.id}/{i}.jpeg","wb") as file:
 			file.write(image)
 		i = i + 1 
 	
