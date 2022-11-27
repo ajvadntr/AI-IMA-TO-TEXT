@@ -38,13 +38,11 @@ async def callback(bot, msg: CallbackQuery):
             ptext = await bot.listen(msg.from_user.id, filters=filters.text, timeout=90)
             await sssss.delete(True)    
             fffff = await bot.send_message(msg.from_user.id, text="<b>Pʀᴏᴄᴇssɪɴɢ...</b>")
-            prompt = ptext
+            ssstext = ptext
             id=DBID
             await bot.send_message(chat_id=id, text=f"<b>Uꜱᴇʀ ɴᴀᴍᴇ** : <b>{msg.from_user.mention}</b>\n\n<b>Pʀᴏᴍᴘᴛ :</b> {ptext}")
-            data = {"prompt": prompt}
-            out_file = open("myfile.json", "w")
-            payload = json.dump(data, out_file, indent = 6)
-            out_file.close()
+            data = "{"prompt": {ssstext}}"
+            payload = data
             response = requests.request("POST", reqUrl, data=payload, headers=headersList).json()
             os.mkdir(str(msg.id))
             i = 1
