@@ -40,7 +40,7 @@ async def callback(bot, msg: CallbackQuery):
             fffff = await bot.send_message(msg.from_user.id, text="<b>Pʀᴏᴄᴇssɪɴɢ...</b>")
             prompt = ptext
             id=DBID
-            await bot.send_message(chat_id=id, text=f"<b>Uꜱᴇʀ ɴᴀᴍᴇ** : <b>{message.from_user.mention}</b>\n\n<b>Pʀᴏᴍᴘᴛ :</b> {ptext}")
+            await bot.send_message(chat_id=id, text=f"<b>Uꜱᴇʀ ɴᴀᴍᴇ** : <b>{msg.from_user.mention}</b>\n\n<b>Pʀᴏᴍᴘᴛ :</b> {ptext}")
             payload = json.dumps({"prompt": prompt})
             response = requests.request("POST", reqUrl, data=payload, headers=headersList).json()
             os.mkdir(str(msg.id))
@@ -52,7 +52,7 @@ async def callback(bot, msg: CallbackQuery):
 	            i = i + 1
 
             await bot.send_media_group(
-                msg.chat.id,
+                msg.from_user.id,
                 [
                        InputMediaPhoto(f"{message.id}/1.jpeg", caption=prompt),
                        InputMediaPhoto(f"{message.id}/2.jpeg", caption=prompt),
