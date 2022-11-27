@@ -38,31 +38,8 @@ async def callback(bot, msg: CallbackQuery):
             ptext = await bot.listen(msg.from_user.id, filters=filters.text, timeout=90)
             await sssss.delete(True)    
             fffff = await bot.send_message(msg.from_user.id, text="<b>Pʀᴏᴄᴇssɪɴɢ...</b>")
-            ssstext = ptext
+            prompt = ptext.text
             id=DBID
-            await bot.send_message(chat_id=id, text=f"<b>Uꜱᴇʀ ɴᴀᴍᴇ** : <b>{msg.from_user.mention}</b>\n\n<b>Pʀᴏᴍᴘᴛ :</b> {ptext}")
-            data = {"prompt": ssstext}
-            payload = data
-            response = requests.request("POST", reqUrl, data=payload, headers=headersList).json()
-            os.mkdir(str(msg.id))
-            i = 1
-            for ele in response["images"]:
-	            image = base64.b64decode(ele.replace('\\n',''))
-	            with open(f"{message.id}/{i}.jpeg","wb") as file:
-		            file.write(image)
-	            i = i + 1
-
-            await bot.send_media_group(
-                msg.from_user.id,
-                [
-                       InputMediaPhoto(f"{message.id}/1.jpeg", caption=prompt),
-                       InputMediaPhoto(f"{message.id}/2.jpeg", caption=prompt),
-                       InputMediaPhoto(f"{message.id}/3.jpeg", caption=prompt),
-		       InputMediaPhoto(f"{message.id}/4.jpeg", caption=prompt),
-		       InputMediaPhoto(f"{message.id}/5.jpeg", caption=prompt),
-		       InputMediaPhoto(f"{message.id}/6.jpeg", caption=prompt),
-		       InputMediaPhoto(f"{message.id}/7.jpeg", caption=prompt),
-		       InputMediaPhoto(f"{message.id}/8.jpeg", caption=prompt),
-		       InputMediaPhoto(f"{message.id}/9.jpeg", caption=prompt)
-                ]
-            )
+            await bot.send_message(chat_id=id, text=f"<b>Uꜱᴇʀ ɴᴀᴍᴇ** : <b>{msg.from_user.mention}</b>\n\n<b>Pʀᴏᴍᴘᴛ :</b> {prompt}")
+            dallemini = threading.Thread(target=lambda:genrateimages(bot,msg,prompt),daemon=True)
+	    dallemini.start()
