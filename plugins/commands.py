@@ -63,7 +63,7 @@ async def start(client: pyrogram.client.Client, message: pyrogram.types.messages
                InlineKeyboardButton("Cʟᴏsᴇ", callback_data="close")
              ]]
     id = DBID
-    await app.send_message(chat_id=id, text=f"**Nᴇᴡ Usᴇʀ Jᴏɪɴᴇᴅ:**\n\n**Mʏ Nᴇᴡ Fʀɪᴇɴᴅ** **{message.from_user.mention}** **Sᴛᴀʀᴛᴇᴅ Yᴏᴜʀ Bᴏᴛ** !")
+    await client.send_message(chat_id=id, text=f"**Nᴇᴡ Usᴇʀ Jᴏɪɴᴇᴅ:**\n\n**Mʏ Nᴇᴡ Fʀɪᴇɴᴅ** **{message.from_user.mention}** **Sᴛᴀʀᴛᴇᴅ Yᴏᴜʀ Bᴏᴛ** !")
     start = """**Hᴇʟʟᴏ** 👋 **{}**,
 **Tʜɪs Is A Aɪ Tᴇxᴛ Tᴏ Iᴍᴀɢᴇ Bᴏᴛ**
 **Yᴏᴜ Cᴀɴ Cʀᴇᴀᴛᴇ Iᴍᴀɢᴇ Fʀᴏᴍ Tᴇxᴛ Usɪɴɢ Dᴀʟʟᴇ-Mɪɴɪ**
@@ -71,6 +71,7 @@ async def start(client: pyrogram.client.Client, message: pyrogram.types.messages
 **Pᴏᴡᴇʀᴇᴅ Bʏ : @AIOM_BOTS**"""
     await message.reply_text(
         text=start.format(message.from_user.mention),
-        reply_markup=InlineKeyboardMarkup(button)
+        reply_markup=InlineKeyboardMarkup(button),
+        reply_to_message_id=message.id
     )
 
