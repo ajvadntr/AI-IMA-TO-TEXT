@@ -1,5 +1,6 @@
 ##
 import io
+from io import BytesIO
 import os
 import base64
 import replicate
