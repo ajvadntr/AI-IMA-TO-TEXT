@@ -2,6 +2,7 @@
 import io
 from io import BytesIO
 import os
+from PIL import Image
 import base64
 import replicate
 
