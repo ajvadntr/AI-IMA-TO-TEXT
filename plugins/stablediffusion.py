@@ -16,23 +16,9 @@ version = model.versions.get("8abccf52e7cba9f6e82317253f4a3549082e966db5584e92c8
 
 
 def stablediffusion(bot, msg, prompt):
-    output = version.predict(prompt=prompt, num_outputs=9)
-    i = 1
-    for ele in output["images"]:
-	    image = base64.b64decode(ele.replace('\\n',''))
-	    with open(f"{msg.id}/{i}.jpeg","wb") as file:
-	            file.write(image)
-	    i = i + 1
-    bot.send_media_group(msg.from_user.id,
-    [
-        InputMediaPhoto(f"{msg.id}/1.jpeg", caption=prompt),
-        InputMediaPhoto(f"{msg.id}/2.jpeg", caption=prompt),
-        InputMediaPhoto(f"{msg.id}/3.jpeg", caption=prompt),
-		InputMediaPhoto(f"{msg.id}/4.jpeg", caption=prompt),
-		InputMediaPhoto(f"{msg.id}/5.jpeg", caption=prompt),
-		InputMediaPhoto(f"{msg.id}/6.jpeg", caption=prompt),
-		InputMediaPhoto(f"{msg.id}/7.jpeg", caption=prompt),
-		InputMediaPhoto(f"{msg.id}/8.jpeg", caption=prompt),
-		InputMediaPhoto(f"{msg.id}/9.jpeg", caption=prompt)
-    ]
-						)
+    output = version.predict(prompt=prompt)
+    with open('{msg.id}/1.jpeg', mode='wb') as file:
+        img = file.read()
+
+    output['img'] = base64.b64encode(img)
+    bot.send_photo(chat_id=msg.from_user.id, image=json.dumps(data))
