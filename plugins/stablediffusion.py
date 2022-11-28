@@ -16,8 +16,8 @@ version = model.versions.get("8abccf52e7cba9f6e82317253f4a3549082e966db5584e92c8
 
 def stablediffusion(bot, msg, prompt):
     output = version.predict(prompt=prompt)
-    data = {}
-    with open('{msg.id}.jpeg', mode='wb') as file:
-        img = file.write()
-    data['img'] = base64.encodebytes(img).decode('utf-8')
-    bot.send_photo(msg.from_user.id, image=json.dumps(data))
+    for ele in output["images"]:
+	    image = base64.b64decode(ele.replace('\\n',''))
+	    with open(f"{msg.id}/1.jpeg","wb") as file:
+	            file.write(image)
+    bot.send_photo(msg.from_user.id, image="{msg.id}/1.jpeg")
