@@ -18,4 +18,4 @@ def image_to_bytes(output):
 
 def stablediffusion(bot, msg, prompt):
 	output = version.predict(prompt=prompt)
-        app.send_photo(image_to_bytes(output))
+        bot.send_photo(image_to_bytes(output))
