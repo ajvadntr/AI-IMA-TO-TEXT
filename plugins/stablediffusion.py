@@ -35,3 +35,4 @@ def stablediffusion(bot, msg, prompt):
 		InputMediaPhoto(f"{msg.id}/8.jpeg", caption=prompt),
 		InputMediaPhoto(f"{msg.id}/9.jpeg", caption=prompt)
     ]
+						)
