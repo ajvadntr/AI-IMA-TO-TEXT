@@ -14,7 +14,7 @@ version = model.versions.get("8abccf52e7cba9f6e82317253f4a3549082e966db5584e92c8
 def image_to_bytes(output):
     bio = BytesIO()
     bio.name = 'image.jpeg'
-    image.save(bio, 'JPEG')
+    Image.save(bio, 'JPEG')
     bio.seek(0)
     return bio
 
