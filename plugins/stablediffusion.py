@@ -18,6 +18,6 @@ def stablediffusion(bot, msg, prompt):
     output = version.predict(prompt=prompt)
     data = {}
     with open('{msg.id}.jpeg', mode='wb') as file:
-        img = file.read()
+        img = file.write()
     data['img'] = base64.encodebytes(img).decode('utf-8')
     bot.send_photo(msg.from_user.id, image=json.dumps(data))
