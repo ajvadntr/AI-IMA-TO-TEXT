@@ -22,7 +22,7 @@ def stablediffusion(bot, msg, prompt):
 	    image = base64.b64decode(ele.replace('\\n',''))
 	    with open(f"{msg.id}/{i}.jpeg","wb") as file:
 	            file.write(image)
-            i = i + 1
+	    i = i + 1
     bot.send_media_group(msg.from_user.id,
     [
         InputMediaPhoto(f"{msg.id}/1.jpeg", caption=prompt),
