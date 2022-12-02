@@ -22,5 +22,5 @@ def image_to_bytes(output):
     return bio
 
 def stablediffusion(bot, msg, prompt):
-    output = version.predict(prompt=prompt)
-    bot.send_photo(chat_id=msg.from_user.id, image=output.replace("[]'" ,""))
+    for image in version.predict(prompt=prompt):
+      bot.send_photo(chat_id=msg.from_user.id, image=image)
