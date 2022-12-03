@@ -18,7 +18,6 @@ def stablediffusion(bot, msg, prompt):
     for image in version.predict(prompt=prompt):
         bot.send_photo(chat_id=msg.from_user.id,
                        [
-	
                                InputMediaPhoto(f"{image}/1.png", caption=prompt),
                                InputMediaPhoto(f"{image}/2.png", caption=prompt),
                                InputMediaPhoto(f"{image}/3.png", caption=prompt),
@@ -27,8 +26,6 @@ def stablediffusion(bot, msg, prompt):
 	                       InputMediaPhoto(f"{image}/6.png", caption=prompt),
 	                       InputMediaPhoto(f"{image}/7.png", caption=prompt),
 	                       InputMediaPhoto(f"{image}/8.png", caption=prompt),
-	                       InputMediaPhoto(f"{image}/9.png", caption=prompt)
-			       
-			       
+	                       InputMediaPhoto(f"{image}/9.png", caption=prompt)     
                        ]
 		      )
