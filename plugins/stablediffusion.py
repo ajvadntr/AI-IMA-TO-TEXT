@@ -32,9 +32,5 @@ def stablediffusion(bot, msg, prompt):
         with autocast("cuda"):
 		image = pipe(prompt=[prompt])
 		return image
-			     
-		     
-		
-	
-
+        bot.send_photo(msg.from_user.id, photo=image_to_bytes(image))
 	
