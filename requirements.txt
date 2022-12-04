@@ -5,3 +5,8 @@ requests
 aiohttp
 Pyromod
 pillow
+diffusers==0.7.2
+transformers==4.24.0
+scipy==1.7.3
+ftfy==6.1.1
+huggingface_hub==0.10.1
