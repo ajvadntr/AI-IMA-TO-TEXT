@@ -6,7 +6,7 @@ import shutil
 import requests
 import pyrogram
 from pyrogram.types import InputMediaPhoto
-from bot import Bot as app
+from pyrogram import Client as app
 
 
 reqUrl = "https://backend.craiyon.com/generate"
