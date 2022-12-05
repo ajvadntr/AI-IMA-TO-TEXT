@@ -7,7 +7,7 @@ import threading
 import shutil
 import requests
 import pyrogram
-from bot import Bot as app
+from pyrogram import Client as app
 from config import DBID
 import asyncio
 from asyncio import TimeoutError
