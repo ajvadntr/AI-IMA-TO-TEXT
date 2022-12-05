@@ -2,7 +2,7 @@
 ## --- ## ## --- ##
 import pyrogram
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
-from bot import Bot as app
+from pyrogram import Client as app
 from pyrogram import filters
 from config import DBID
 
